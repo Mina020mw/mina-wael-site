@@ -276,7 +276,7 @@ function finish(){try{if(v.duration)v.currentTime=Math.max(0,v.duration-.04)}cat
 function start(){v.loop=false;v.muted=true;const p=v.play();
 if(p&&p.catch)p.catch(e=>{if(e&&e.name==="NotAllowedError"){if(v.readyState>=1)finish();else v.addEventListener("loadedmetadata",finish,{once:true})}})}
 v.addEventListener("error",()=>{if(tried++===0){v.src=URI;start()}else{v.poster=LAST}});
-Promise.all(["hero.part00","hero.part01","hero.part02"].map(p=>fetch(p).then(r=>r.arrayBuffer()))).then(a=>{v.src=URL.createObjectURL(new Blob(a,{type:"video/mp4"}));start()}).catch(()=>{v.poster=LAST});
+Promise.all(["8-hero.part00","9-hero.part01","12-hero.part02"].map(p=>fetch(p).then(r=>r.arrayBuffer()))).then(a=>{v.src=URL.createObjectURL(new Blob(a,{type:"video/mp4"}));start()}).catch(()=>{v.poster=LAST});
 start();
 addEventListener("pageshow",e=>{if(e.persisted){v.currentTime=0;start()}});
 })();
